@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 
 import * as Chess from '../../../node_modules/chess.js';
 import * as ChessBoard from '../../../node_modules/chessboardjs';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'page-home',

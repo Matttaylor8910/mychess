@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome to MyChess</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <ion-item *ngIf="isNewUser">
+      <ion-label>Username</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <button ion-button full clear type="submit" [disabled]="!signUpForm || !signUpForm.valid">
+        {{ isNewUser ? 'Create User' : 'Log In' }}
+    </button>
+  </form>
+
+  <div padding>
+    <button ion-button full clear (click)="toggleSignIn()">
+      {{ isNewUser ? 'Have an account?' : 'Create an account' }}
+    </button>
+  </div>
+
+</ion-content>
