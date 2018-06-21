@@ -20,6 +20,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     var cfg = {
+      pieceTheme: 'assets/imgs/wikipedia/{piece}.png',
       draggable: true,
       position: 'start',
       onDragStart: this.onDragStart.bind(this),
@@ -89,7 +90,7 @@ export class HomePage {
       if (this.game.in_check() === true) {
         status += ', ' + moveColor + ' is in check';
       }
-      
+
     }
   };
 
