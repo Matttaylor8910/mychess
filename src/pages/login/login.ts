@@ -55,7 +55,7 @@ export class LoginPage {
   }
 
   async signUp() { 
-    await this.auth.emailSignUp(this.email.value, this.password.value);
+    await this.auth.emailSignUp(this.email.value, this.password.value, this.name.value);
     await this.navCtrl.setRoot(HomePage);
   }
 

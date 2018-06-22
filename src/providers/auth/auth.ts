@@ -49,7 +49,8 @@ export class AuthProvider {
 
     const data = {
       uid: user.uid,
-      email: user.email
+      email: user.email,
+      displayName: user.displayName || null
     };
     return userRef.set(data, { merge: true });
   }
@@ -61,9 +62,10 @@ export class AuthProvider {
 
   //// EMAIL/PASSWORD ////
 
-  async emailSignUp(email: string, passsword: string) {
+  async emailSignUp(email: string, passsword: string, name: string) {
     try {
-      const user = await this.afAuth.auth.createUserWithEmailAndPassword(email, passsword);
+      let user = await this.afAuth.auth.createUserWithEmailAndPassword(email, passsword);
+      user.displayName = name;
       await this.setUserData(user);
     }
     catch(err) {
