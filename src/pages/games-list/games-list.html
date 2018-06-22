@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MyChess</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ng-container *ngIf="auth.user | async as user">
+
+      <ion-card class="game-record-container">
+        <ion-grid text-center>
+          <ion-row>
+            <ion-col>
+              <h3>{{ user.wins || 0 }}</h3>
+              <p>Wins</p>
+            </ion-col>
+            <ion-col>
+              <h3>{{ user.losses || 0 }}</h3>
+              <p>Losses</p>
+            </ion-col>
+            <ion-col>
+              <h3>{{ user.draws || 0 }}</h3>
+              <p>Draws</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+      <ion-card>
+        <ion-list>
+          <ion-list-header>
+            Your Move
+          </ion-list-header>
+          <ion-item>Waiting for moves</ion-item>
+        </ion-list>
+      </ion-card>
+
+      <ion-card>
+        <ion-list>
+          <ion-list-header>
+            Their Move
+          </ion-list-header>
+          <ion-item>No Games</ion-item>
+        </ion-list>
+      </ion-card>
+
+      <ion-card>
+        <ion-list>
+          <ion-list-header>
+            Game Over
+          </ion-list-header>
+          <ion-item>No Games</ion-item>
+        </ion-list>
+      </ion-card>
+
+      <logout></logout>
+
+    </ng-container>
+</ion-content>

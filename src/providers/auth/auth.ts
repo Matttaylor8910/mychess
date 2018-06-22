@@ -9,6 +9,15 @@ import { Platform } from 'ionic-angular';
 
 // import { Facebook } from '@ionic-native/facebook';
 
+export interface User {
+  uid: string,
+  displayName: string,
+  email: string
+  wins: number,
+  losses: number,
+  draws: number
+}
+
 @Injectable()
 export class AuthProvider {
 

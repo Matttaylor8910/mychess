@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
+import { GamesListPage } from '../games-list/games-list';
 
 @Component({
   selector: 'page-login',
@@ -56,12 +56,12 @@ export class LoginPage {
 
   async signUp() { 
     await this.auth.emailSignUp(this.email.value, this.password.value, this.name.value);
-    await this.navCtrl.setRoot(HomePage);
+    await this.navCtrl.setRoot(GamesListPage);
   }
 
   async signIn() { 
     await this.auth.emailSignIn(this.email.value, this.password.value);
-    await this.navCtrl.setRoot(HomePage);
+    await this.navCtrl.setRoot(GamesListPage);
   }
 
 }

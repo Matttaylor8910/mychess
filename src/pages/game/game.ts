@@ -3,12 +3,13 @@ import { NavController } from 'ionic-angular';
 
 import * as Chess from '../../../node_modules/chess.js';
 import * as ChessBoard from '../../../node_modules/chessboardjs';
+import * as $ from 'jquery';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-game',
+  templateUrl: 'game.html'
 })
-export class HomePage {
+export class GamePage {
 
   board: any;
   game = new Chess();
@@ -27,6 +28,8 @@ export class HomePage {
       onSnapEnd: this.onSnapEnd.bind(this)
     };
     this.board = new ChessBoard('board', cfg);
+
+    $(window).resize(this.board.resize);
 
     this.updateStatus();
   }
